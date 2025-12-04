@@ -1,6 +1,21 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { Button } from '@mui/material';
+import styled from 'styled-components';
+
+const StyledLogoutButton = styled.button`
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #3459c0;
+  }
+`;
 
 export default function LogoutButton() {
   const router = useRouter();
@@ -11,8 +26,8 @@ export default function LogoutButton() {
   };
 
   return (
-    <Button variant="outlined" color="primary" onClick={handleLogout}>
+    <StyledLogoutButton onClick={handleLogout}>
       Log Out
-    </Button>
+    </StyledLogoutButton>
   );
 }

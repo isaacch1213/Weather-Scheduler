@@ -2,6 +2,52 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { loginOrRegister } from '@/lib/mockAuth';
+import styled from 'styled-components';
+
+const LoginContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+`;
+
+const LoginBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+`;
+
+const StyledLabel = styled.label`
+  font-size: 0.75rem;
+  font-family: 'Quicksand', sans-serif;
+  color: #1b2a49;
+`;
+
+const StyledH4 = styled.h4`
+  font-weight: 700;
+  color: #1b2a49;
+  text-align: center;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+`;
+
+const StyledButton = styled.button`
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+
+  display: block;
+  margin: 0.5rem auto 0 auto;
+
+  &:hover {
+    background-color: #3459c0;
+  }
+`;
 
 export default function LoginForm() {
   const router = useRouter();
@@ -26,11 +72,11 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="login-container">
-    <div className="login-box">
-    <h4>Log In / Register</h4>
+    <LoginContainer>
+    <LoginBox>
+    <StyledH4>Log In / Register</StyledH4>
     <form onSubmit={handleSubmit}>
-      <label>
+      <StyledLabel>
         <div>Username:</div>
         <input
           type="text"
@@ -38,9 +84,9 @@ export default function LoginForm() {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-      </label>
+      </StyledLabel>
       <br />
-      <label>
+      <StyledLabel>
         <div><p>Password:</p></div>
         <input
           type="password"
@@ -48,12 +94,12 @@ export default function LoginForm() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-      </label>
+      </StyledLabel>
       <br />
-      <button type="submit" style={{ display: 'block', margin: '0.5rem auto 0 auto'}}>Go!</button>
+      <StyledButton type="submit" style={{ display: 'block', margin: '0.5rem auto 0 auto'}}>Go!</StyledButton>
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </form>
-    </div>
-    </div>
+    </LoginBox>
+    </LoginContainer>
   );
 }

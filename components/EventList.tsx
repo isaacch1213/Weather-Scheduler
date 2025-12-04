@@ -1,6 +1,50 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { getEvents, Event } from '@/lib/mockEvents';
+import styled from 'styled-components';
+
+export const NoEventsText = styled.p`
+  text-align: center;
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  color: #1b2a49;
+`;
+
+export const EventsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+`;
+
+export const EventCard = styled.div`
+  background-color: #a2f3ff;
+  width: 260px;
+  padding: 1.25rem;
+  border-radius: 16px;
+  border: 2px solid #a3d3f5;
+  font-family: 'Quicksand', sans-serif;
+`;
+
+export const EventTitle = styled.h3`
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1b2a49;
+  margin-bottom: 0.5rem;
+  text-align: center;
+`;
+
+export const EventLine = styled.p`
+  font-size: 1rem;
+  color: #1b2a49;
+  margin: 0.3rem 0;
+`;
+
+export const EventLabel = styled.span`
+  font-weight: 600;
+  color: #1e3a8a;
+`;
 
 export default function EventList() {
   const [events, setEvents] = useState<Event[]>([]);
@@ -14,28 +58,28 @@ export default function EventList() {
   }, []);
 
   if (events.length === 0) {
-    return <p className="no-events-text">No events scheduled.</p>;
+    return <NoEventsText>No events scheduled.</NoEventsText>;
   }
 
   return (
-    <div className="events-container">
+    <EventsContainer>
       {events.map((event, index) => (
-        <div key={index} className="event-card">
-          <h3 className="event-title">{event.eventName}</h3>
+        <EventCard key={index}>
+          <EventTitle>{event.eventName}</EventTitle>
 
-          <p className="event-line">
-            <span className="event-label">Time:</span> {event.startTime} – {event.endTime}
-          </p>
+          <EventLine>
+            <EventLabel>Time:</EventLabel> {event.startTime} – {event.endTime}
+          </EventLine>
 
-          <p className="event-line">
-            <span className="event-label">Location:</span> {event.location}
-          </p>
+          <EventLine>
+            <EventLabel>Location:</EventLabel> {event.location}
+          </EventLine>
 
-          <p className="event-line">
-            <span className="event-label">Outside:</span> {event.isOutside ? "Yes" : "No"}
-          </p>
-        </div>
+          <EventLine>
+            <EventLabel>Outside:</EventLabel> {event.isOutside ? "Yes" : "No"}
+          </EventLine>
+        </EventCard>
       ))}
-    </div>
+    </EventsContainer>
   );
 }

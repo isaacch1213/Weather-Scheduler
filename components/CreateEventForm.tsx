@@ -2,6 +2,22 @@
 import { useState } from 'react';
 import { Modal, Box, Typography, TextField, Button, Checkbox, FormControlLabel} from '@mui/material';
 import { createEvent } from '@/lib/mockEvents';
+import styled from 'styled-components';
+
+const StyledModal = styled.div`
+  background-color: white;
+  padding: 2rem;
+  width: 20rem;
+  height: 25rem;
+  margin: 10vh auto;
+  border-radius: 16px;
+  overflow-y: auto;
+  font-family: 'Quicksand', sans-serif;
+
+  & * {
+    font-family: 'Quicksand', sans-serif;
+  }
+`;
 
 export default function CreateEventForm({
   open,
@@ -39,21 +55,7 @@ export default function CreateEventForm({
 
   return (
     <Modal open={open} onClose={onClose}>
-      <Box
-        sx={{
-          backgroundColor: 'white',
-          padding: 4,
-          width: "20rem",
-          height:"25rem",
-          margin: '10vh auto',
-          borderRadius: 2,
-          overflowY:"auto",
-          fontFamily: "'Quicksand', sans-serif",
-          "& *": {
-            fontFamily: "'Quicksand', sans-serif",
-          },
-        }}
-      >
+      <StyledModal>
         <Typography variant="h6">
           Create Event
         </Typography>
@@ -105,7 +107,7 @@ export default function CreateEventForm({
             Submit
           </Button>
         </form>
-      </Box>
+      </StyledModal>
     </Modal>
   );
 }
