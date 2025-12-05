@@ -62,13 +62,26 @@ export const WeatherWarning = styled.div`
 export default function EventList({ refreshSignal }: { refreshSignal: number }) {
   const [events, setEvents] = useState<EventProps[]>([]);
 
-  useEffect(() => {
-    async function fetchEvents() {
-      const data = await getEvents();
-      setEvents(data);
-    }
-    fetchEvents();
-  }, [refreshSignal]);
+useEffect(() => {
+  async function fetchEvents() {
+    const data = await getEvents();
+
+    // Sort by startTime ("HH:mm")
+    const sorted = [...data].sort((a, b) => {
+      const [hA, mA] = a.startTime.split(':').map(Number);
+      const [hB, mB] = b.startTime.split(':').map(Number);
+
+      const minutesA = hA * 60 + mA;
+      const minutesB = hB * 60 + mB;
+
+      return minutesA - minutesB;
+    });
+
+    setEvents(sorted);
+  }
+
+  fetchEvents();
+}, [refreshSignal]);
 
   const handleDeleteEvent = (eventId: string) => {
     // Remove event from local state
