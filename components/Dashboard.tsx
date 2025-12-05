@@ -17,14 +17,15 @@ const StyledMain = styled.main`
 
 export default function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [refreshCounter, setRefreshCounter] = useState(0);
 
   return (
     <>
       <Header />
       <StyledMain>
-        <EventList />
+        <EventList refreshSignal={refreshCounter} />
         <CreateEventButton openModal={() => setIsModalOpen(true)} />
-        <CreateEventForm open={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        <CreateEventForm open={isModalOpen} onClose={() => setIsModalOpen(false)} onCreated={() => setRefreshCounter(prev => prev + 1)}  />
       </StyledMain>
     </>
   );
