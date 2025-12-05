@@ -1,6 +1,6 @@
-import { Event } from "@/types/event";
+import { EventProps } from "@/types/EventProps";
 
-export async function createEvent(event: Event) {
+export async function createEvent(event: EventProps) {
     await fetch("/api/events", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { getEvents } from '@/lib/events';
-import { Event } from '@/types/event';
+import { EventProps } from '@/types/EventProps';
 import styled from 'styled-components';
 
 export const NoEventsText = styled.p`
@@ -59,7 +59,7 @@ export const WeatherWarning = styled.div`
 `;
 
 export default function EventList({ refreshSignal }: { refreshSignal: number }) {
-  const [events, setEvents] = useState<Event[]>([]);
+  const [events, setEvents] = useState<EventProps[]>([]);
 
   useEffect(() => {
     async function fetchEvents() {
