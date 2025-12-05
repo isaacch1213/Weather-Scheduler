@@ -1,4 +1,5 @@
 export type EventProps = {
+    _id?: string;
     eventName: string;
     startTime: string;
     endTime: string;

@@ -17,8 +17,23 @@ export async function getEvents() {
     return res.json();
 }
 
+
 export async function clearEvents() {
     await fetch("/api/events", {
-      method: "DELETE",
+        method: "DELETE",
+        credentials: "include",
     });
+}
+
+export async function deleteEvent(eventId: string): Promise<void> {
+    const response = await fetch("/api/events", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ id: eventId }),
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to delete event');
+    }
 }

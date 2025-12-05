@@ -1,8 +1,8 @@
-
 import { useEffect, useState } from 'react';
 import { getEvents } from '@/lib/events';
 import { EventProps } from '@/types/EventProps';
 import styled from 'styled-components';
+import DeleteEventButton from '@/components/DeleteEventButton';
 
 export const NoEventsText = styled.p`
   text-align: center;
@@ -27,6 +27,7 @@ export const EventCard = styled.div`
   border-radius: 16px;
   border: 2px solid #a3d3f5;
   font-family: 'Quicksand', sans-serif;
+  position: relative; // Important for absolute positioning of delete button
 `;
 
 export const EventTitle = styled.h3`
@@ -69,14 +70,26 @@ export default function EventList({ refreshSignal }: { refreshSignal: number }) 
     fetchEvents();
   }, [refreshSignal]);
 
+  const handleDeleteEvent = (eventId: string) => {
+    // Remove event from local state
+    setEvents(events.filter(event => event._id !== eventId));
+  };
+
   if (events.length === 0) {
     return <NoEventsText>No events scheduled.</NoEventsText>;
   }
 
   return (
     <EventsContainer>
-      {events.map((event, index) => (
-        <EventCard key={index}>
+      {events.map((event) => (
+        <EventCard key={event._id}>
+          {event._id && (
+            <DeleteEventButton 
+              eventId={event._id} 
+              onDelete={handleDeleteEvent}
+            />
+          )}
+
           <EventTitle>{event.eventName}</EventTitle>
 
           <EventLine>

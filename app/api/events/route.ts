@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import getCollection from "@/db";
+import { ObjectId } from "mongodb";
 
 export async function GET() {
     const session = await auth();
@@ -44,7 +45,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true });
 }
 
-export async function DELETE() {
+export async function DELETE(req: Request) {
     const session = await auth();
 
     if (!session?.user?.email) {
@@ -52,7 +53,31 @@ export async function DELETE() {
     }
 
     const coll = await getCollection("events");
-    await coll.deleteMany({ userId: session.user.email });
+
+    const body = await req.json().catch(() => null);
+    
+    if (body?.id) {
+        if (!ObjectId.isValid(body.id)) {
+            return NextResponse.json(
+                { error: "Invalid event ID" },
+                { status: 400 }
+            );
+        }
+
+        const result = await coll.deleteOne({
+            _id: new ObjectId(body.id),
+            userId: session.user.email,
+        });
+
+        if (result.deletedCount === 0) {
+            return NextResponse.json(
+                { error: "Event not found or unauthorized" },
+                { status: 404 }
+            );
+        }
+    } else {
+        await coll.deleteMany({ userId: session.user.email });
+    }
   
     return NextResponse.json({ success: true });
 }
