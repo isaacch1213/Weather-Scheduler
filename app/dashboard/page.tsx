@@ -10,7 +10,7 @@ import styled from 'styled-components';
 
 const StyledMain = styled.main`
   background-color: #d0ecff;
-  min-height: 100vh;
+  height: 90vh;
   font-family: 'Quicksand', sans-serif;
   color: #1b2a49;
   padding-bottom: 3rem;

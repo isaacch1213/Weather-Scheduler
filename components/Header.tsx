@@ -5,20 +5,17 @@ import ClearEventsButton from './ClearEventsButton';
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
+  width: 100vw;
+  height: 10vh;
   background-color: #a3d3f5;
-  text-align: center;
-  padding: 1rem;
   display: flex;
-  align-items: center;
   justify-content: center;
-  position: relative;
+  align-items: center;
 `;
 
 const StyledH2 = styled.h2`
   font-weight: 700;
   color: #1b2a49;
-  text-align: center;
-  font-size: 2rem;
 `;
 
 const HeaderButtonRight = styled.div`
