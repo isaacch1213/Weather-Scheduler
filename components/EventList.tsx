@@ -84,7 +84,6 @@ useEffect(() => {
 }, [refreshSignal]);
 
   const handleDeleteEvent = (eventId: string) => {
-    // Remove event from local state
     setEvents(events.filter(event => event._id !== eventId));
   };
 
