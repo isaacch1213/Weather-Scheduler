@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { getEvents, Event } from '@/lib/mockEvents';
+import { getEvents } from '@/lib/events';
+import { Event } from '@/types/event';
 import styled from 'styled-components';
 
 export const NoEventsText = styled.p`
@@ -72,7 +73,7 @@ export default function EventList() {
           </EventLine>
 
           <EventLine>
-            <EventLabel>Location:</EventLabel> {event.location}
+            <EventLabel>Location:</EventLabel> {event.city}
           </EventLine>
 
           <EventLine>

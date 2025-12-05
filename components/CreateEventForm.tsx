@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { Modal, Box, Typography, TextField, Button, Checkbox, FormControlLabel} from '@mui/material';
-import { createEvent } from '@/lib/mockEvents';
+import { createEvent } from '@/lib/events';
 import styled from 'styled-components';
 
 const StyledModal = styled.div`
@@ -29,7 +29,7 @@ export default function CreateEventForm({
   const [eventName, setEventName] = useState('');
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
-  const [location, setLocation] = useState('');
+  const [city, setCity] = useState('');
   const [isOutside, setIsOutside] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -39,7 +39,7 @@ export default function CreateEventForm({
       eventName,
       startTime,
       endTime,
-      location,
+      city,
       isOutside,
     });
 
@@ -47,7 +47,7 @@ export default function CreateEventForm({
     setEventName('');
     setStartTime('');
     setEndTime('');
-    setLocation('');
+    setCity('');
     setIsOutside(false);
 
     onClose();
@@ -87,9 +87,9 @@ export default function CreateEventForm({
             margin="normal"
           />
           <TextField
-            label="Event Zip Code"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
+            label="City"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
             fullWidth
             required
             margin="normal"

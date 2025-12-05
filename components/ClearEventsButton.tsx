@@ -1,5 +1,5 @@
 'use client';
-import { clearEvents } from '@/lib/mockEvents';
+import { clearEvents } from '@/lib/events';
 import { useState } from 'react';
 import styled from 'styled-components';
 
@@ -18,11 +18,10 @@ const StyledClearButton = styled.button`
 `;
 
 export default function ClearEventsButton() {
-  const [refreshKey, setRefreshKey] = useState(0);
 
   const handleClear = async () => {
     await clearEvents();
-    window.location.reload(); // reload
+    window.location.reload();
   };
 
   return (
