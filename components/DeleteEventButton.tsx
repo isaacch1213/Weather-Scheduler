@@ -5,10 +5,10 @@ import { deleteEvent } from '@/lib/events';
 const DeleteButton = styled.button`
   position: absolute;
   top: 0.75rem;
-  right: 0.75rem;
-  background-color: #ef4444;
+  left: 0.75rem;
+  background-color: #2563eb;
   color: white;
-  border: none;
+  border: 2px solid #1e40af;
   border-radius: 8px;
   width: 32px;
   height: 32px;
@@ -20,7 +20,7 @@ const DeleteButton = styled.button`
   transition: background-color 0.2s;
 
   &:hover {
-    background-color: #dc2626;
+    background-color: #1e40af;
   }
 
   &:disabled {
@@ -28,6 +28,7 @@ const DeleteButton = styled.button`
     cursor: not-allowed;
   }
 `;
+
 
 interface DeleteEventButtonProps {
   eventId: string;
