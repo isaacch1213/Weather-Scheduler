@@ -1,4 +1,4 @@
-'use client';
+
 import { useEffect, useState } from 'react';
 import { getEvents } from '@/lib/events';
 import { Event } from '@/types/event';
@@ -13,8 +13,8 @@ export const NoEventsText = styled.p`
 
 export const EventsContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 1.5rem;
   padding: 2rem 1rem;
 `;
@@ -47,7 +47,7 @@ export const EventLabel = styled.span`
   color: #1e3a8a;
 `;
 
-export default function EventList() {
+export default function EventList({ refreshSignal }: { refreshSignal: number }) {
   const [events, setEvents] = useState<Event[]>([]);
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export default function EventList() {
       setEvents(data);
     }
     fetchEvents();
-  }, []);
+  }, [refreshSignal]); // <-- refetch when refreshSignal changes
 
   if (events.length === 0) {
     return <NoEventsText>No events scheduled.</NoEventsText>;
@@ -84,3 +84,4 @@ export default function EventList() {
     </EventsContainer>
   );
 }
+

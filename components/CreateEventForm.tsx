@@ -22,9 +22,11 @@ const StyledModal = styled.div`
 export default function CreateEventForm({
   open,
   onClose,
+  onCreated,
 }: {
   open: boolean;
   onClose: () => void;
+  onCreated: () => void;
 }) {
   const [eventName, setEventName] = useState('');
   const [startTime, setStartTime] = useState('');
@@ -44,6 +46,7 @@ export default function CreateEventForm({
     });
 
     // reset form
+    onCreated();
     setEventName('');
     setStartTime('');
     setEndTime('');
