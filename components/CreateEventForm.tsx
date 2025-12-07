@@ -7,14 +7,15 @@ import { evaluateWeatherForEvent } from '@/lib/evaluateWeatherForEvent';
 import styled from 'styled-components';
 
 const StyledModal = styled.div`
-  background-color: white;
-  padding: 2rem;
-  width: 20rem;
-  height: 25rem;
+  background-color: #5ea7f6ff;
+  padding: 2%;
+  width: 50%;
+  height: 80%;
   margin: 10vh auto;
-  border-radius: 16px;
+  border-radius: 15px;
   overflow-y: auto;
   font-family: 'Quicksand', sans-serif;
+  color: white;
 
   & * {
     font-family: 'Quicksand', sans-serif;
@@ -74,7 +75,7 @@ export default function CreateEventForm({
   return (
     <Modal open={open} onClose={onClose}>
       <StyledModal>
-        <Typography variant="h6">
+        <Typography variant="h6" align="center">
           Create Event
         </Typography>
         <form onSubmit={handleSubmit}>
@@ -85,6 +86,14 @@ export default function CreateEventForm({
             fullWidth
             required
             margin="normal"
+            InputLabelProps={{ sx: { color: 'white' } }}
+            InputProps={{ sx: { color: 'white' } }}
+            inputProps={{ style: { color: 'white' } }}
+            sx={{
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              }
+            }}
           />
           <TextField
             label="Start Time"
@@ -94,6 +103,14 @@ export default function CreateEventForm({
             fullWidth
             required
             margin="normal"
+            InputLabelProps={{ shrink: true, sx: { color: 'white' } }}
+            InputProps={{ sx: { color: 'white' } }}
+            inputProps={{ style: { color: 'white' } }}
+            sx={{
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              }
+            }}
           />
           <TextField
             label="End Time"
@@ -103,6 +120,14 @@ export default function CreateEventForm({
             fullWidth
             required
             margin="normal"
+            InputLabelProps={{ shrink: true, sx: { color: 'white' } }}
+            InputProps={{ sx: { color: 'white' } }}
+            inputProps={{ style: { color: 'white' } }}
+            sx={{
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              }
+            }}
           />
           <TextField
             label="City"
@@ -111,6 +136,14 @@ export default function CreateEventForm({
             fullWidth
             required
             margin="normal"
+            InputLabelProps={{ sx: { color: 'white' } }}
+            InputProps={{ sx: { color: 'white' } }}
+            inputProps={{ style: { color: 'white' } }}
+            sx={{
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'white',
+              }
+            }}
           />
           <FormControlLabel
             control={
@@ -121,7 +154,18 @@ export default function CreateEventForm({
             }
             label="Event is Outside"
           />
-          <Button type="submit" variant="contained" color="primary" fullWidth>
+          <Button 
+          type="submit" 
+          variant="contained"
+          fullWidth
+          sx={{
+            backgroundColor: '#001b67ff',
+            color: 'white',
+            '&:hover': {
+              backgroundColor: '#003adaff',
+            },
+          }}
+          >
             Submit
           </Button>
         </form>

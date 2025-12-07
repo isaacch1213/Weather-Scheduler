@@ -1,14 +1,23 @@
 'use client';
 import Header from '@/components/Header';
 import GitHubAuthForm from '@/components/GitHubAuthForm';
-
+import styled from "styled-components";
+export const CloudBackground = styled.div`
+  min-height: 100vh;
+  background-image: url('/cloud.png');
+  background-repeat: repeat;
+  background-size: 100px;;
+  background-position: 20px 40px;
+`;
 export default function LoginPage() {
   return (
     <>
       <Header />
+      <CloudBackground>
       <main>
         <GitHubAuthForm />
       </main>
+      </CloudBackground>
     </>
   );
 }

@@ -7,9 +7,10 @@ const StyledCreateButton = styled.button`
   color: white;
   border: none;
   border-radius: 10px;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
+  padding: 2% 4%;
+  font-size: 100%;
   cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
 
   &:hover {
     background-color: #3459c0;
@@ -17,9 +18,13 @@ const StyledCreateButton = styled.button`
 `;
 
 const PositionWrapper = styled.div`
-  position: fixed;
-  top: 90vh;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 5%;
   width: 100%;
+  bottom: 0;
   text-align: center;
   z-index: 10;
 `;
@@ -27,9 +32,9 @@ const PositionWrapper = styled.div`
 export default function CreateEventButton({ openModal }: { openModal: () => void }) {
   return (
     <PositionWrapper>
-    <Button variant="contained" color="primary" onClick={openModal}>
-      Create Event
-    </Button>
+    <StyledCreateButton color="primary" onClick={openModal}>
+      + New Event
+    </StyledCreateButton>
     </PositionWrapper>
   );
 }

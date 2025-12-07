@@ -6,7 +6,7 @@ import DeleteEventButton from '@/components/DeleteEventButton';
 
 export const NoEventsText = styled.p`
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 125%;
   margin-top: 2rem;
   color: #1b2a49;
 `;
@@ -15,33 +15,31 @@ export const EventsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-  padding: 2rem 1rem;
+  gap: 1.5%;
+  padding: 2% 1%;
   padding-bottom: 15vh;
 `;
 
 export const EventCard = styled.div`
   background-color: #a2f3ff;
   width: 260px;
-  padding: 1.25rem;
+  padding: 3%;
   border-radius: 16px;
   border: 2px solid #a3d3f5;
   font-family: 'Quicksand', sans-serif;
-  position: relative; // Important for absolute positioning of delete button
+  position: relative;
 `;
 
 export const EventTitle = styled.h3`
-  font-size: 1.3rem;
+  font-size: 125%;
   font-weight: 700;
   color: #1b2a49;
-  margin-bottom: 0.5rem;
   text-align: center;
 `;
 
 export const EventLine = styled.p`
-  font-size: 1rem;
+  font-size: 100%;
   color: #1b2a49;
-  margin: 0.3rem 0;
 `;
 
 export const EventLabel = styled.span`

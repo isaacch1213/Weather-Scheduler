@@ -4,16 +4,16 @@ import { deleteEvent } from '@/lib/events';
 
 const DeleteButton = styled.button`
   position: absolute;
-  top: 0.75rem;
-  left: 0.75rem;
+  top: 5%;
+  left: 5%;
   background-color: #2563eb;
   color: white;
   border: 2px solid #1e40af;
   border-radius: 8px;
-  width: 32px;
-  height: 32px;
+  width: 29px;
+  height: 29px;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 200%;
   display: flex;
   align-items: center;
   justify-content: center;

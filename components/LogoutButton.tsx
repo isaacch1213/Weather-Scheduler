@@ -8,9 +8,12 @@ const StyledLogoutButton = styled.button`
   color: white;
   border: none;
   border-radius: 10px;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
+  padding: 20% 10%;
+  font-size: 100%;
   cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+  white-space: nowrap;
+
 
   &:hover {
     background-color: #3459c0;

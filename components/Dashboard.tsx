@@ -12,7 +12,7 @@ const StyledMain = styled.main`
   height: 90vh;
   font-family: 'Quicksand', sans-serif;
   color: #1b2a49;
-  padding-bottom: 3rem;
+  padding-bottom: 3%;
 `;
 
 export default function Dashboard() {

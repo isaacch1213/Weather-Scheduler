@@ -14,18 +14,19 @@ const StyledHeader = styled.header`
 `;
 
 const StyledH2 = styled.h2`
-  font-weight: 700;
+  font-weight: 1000;
+  font-size: 175%;
   color: #1b2a49;
 `;
 
 const HeaderButtonRight = styled.div`
   position: absolute;
-  right: 1rem;
+  right: 3%;
 `;
 
 const HeaderButtonLeft = styled.div`
   position: absolute;
-  left: 1rem;
+  left: 3%;
 `;
 
 export default function Header() {
