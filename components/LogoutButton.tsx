@@ -1,3 +1,9 @@
+/* 
+component to allow users to sign out and return to login page
+
+Isaac added logOutaction, all else is Rohan
+*/
+
 'use client';
 import { logoutAction } from '@/lib/logout';
 import { useRouter } from 'next/navigation';

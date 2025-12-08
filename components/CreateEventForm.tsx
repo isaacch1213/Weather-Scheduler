@@ -1,3 +1,11 @@
+/* 
+component used to allow user input to create events and store inputs as needed
+
+entire file made by Rohan except for changes to adapt code to backend by Isaac
+
+Isaac sections commented, all else is Rohan
+*/
+
 'use client';
 import { useState } from 'react';
 import { Modal, Box, Typography, TextField, Button, Checkbox, FormControlLabel} from '@mui/material';
@@ -34,14 +42,15 @@ export default function CreateEventForm({
   const [eventName, setEventName] = useState('');
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState(''); /* all city references added by Isaac */
   const [isOutside, setIsOutside] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+    
     const data = await getData(city);
   
+    /* payload and weatherWarning by Isaac*/
     const weatherWarning = evaluateWeatherForEvent(
       data,
       startTime,

@@ -1,3 +1,11 @@
+/* 
+component used to allow user to see all scheduled events and create more if wanted. landing page after login is completed
+
+entire file made by Rohan except for changes to adapt code to backend by Isaac
+
+Isaac sections commented, all else is Rohan
+*/
+
 'use client';
 
 import Header from '@/components/Header';
@@ -17,7 +25,7 @@ const StyledMain = styled.main`
 
 export default function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [refreshCounter, setRefreshCounter] = useState(0);
+  const [refreshCounter, setRefreshCounter] = useState(0); /* all refresh references added by Isaac */
 
   return (
     <>

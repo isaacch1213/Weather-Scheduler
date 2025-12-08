@@ -1,3 +1,9 @@
+/* 
+initial page from Next.js
+
+instantly reroutes to login page, done by Rohan
+*/
+
 'use client';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';

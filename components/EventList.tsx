@@ -1,3 +1,9 @@
+/* 
+component used to allow smooth display of all events a user has scheduled. uses a card display system and displays event information
+
+Isaac and Alex sections commented, all else is Rohan
+*/
+
 import { useEffect, useState } from 'react';
 import { getEvents } from '@/lib/events';
 import { EventProps } from '@/types/EventProps';
@@ -64,7 +70,7 @@ useEffect(() => {
   async function fetchEvents() {
     const data = await getEvents();
 
-    // Sort by startTime ("HH:mm")
+    // Sort by startTime ("HH:mm"), done by Alex
     const sorted = [...data].sort((a, b) => {
       const [hA, mA] = a.startTime.split(':').map(Number);
       const [hB, mB] = b.startTime.split(':').map(Number);
@@ -80,7 +86,7 @@ useEffect(() => {
 
   fetchEvents();
 }, [refreshSignal]);
-
+  /* delete button and associated functionality added by Alex */
   const handleDeleteEvent = (eventId: string) => {
     setEvents(events.filter(event => event._id !== eventId));
   };
@@ -94,7 +100,7 @@ useEffect(() => {
       {events.map((event) => (
         <EventCard key={event._id}>
           {event._id && (
-            <DeleteEventButton 
+            <DeleteEventButton
               eventId={event._id} 
               onDelete={handleDeleteEvent}
             />
@@ -113,7 +119,7 @@ useEffect(() => {
           <EventLine>
             <EventLabel>Outside:</EventLabel> {event.isOutside ? "Yes" : "No"}
           </EventLine>
-
+          {/* weather warning added by Isaac */}
           {event.weatherWarning && (
             <WeatherWarning>
               {event.weatherWarning}

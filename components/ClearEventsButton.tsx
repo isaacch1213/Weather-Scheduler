@@ -1,3 +1,9 @@
+/* 
+component used to allow users to remove all events they have scheduled, calls helper function
+
+entire file made by Rohan
+*/
+
 'use client';
 import { clearEvents } from '@/lib/events';
 import { useState } from 'react';

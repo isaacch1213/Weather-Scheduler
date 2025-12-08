@@ -1,3 +1,9 @@
+/* 
+standard header component for title of website and conditionally rendered buttons
+
+fully made by Rohan
+*/
+
 'use client';
 import { usePathname } from 'next/navigation';
 import LogoutButton from './LogoutButton';
