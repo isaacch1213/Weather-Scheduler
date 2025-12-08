@@ -26,7 +26,7 @@ const StyledH2 = styled.h2`
 `;
 
 const HeaderButtonRight = styled.div`
-  position: absolute;
+  position: absolute; /* ignores other elements, manually place relative to nearest ancestor */
   right: 3%;
 `;
 
@@ -42,6 +42,7 @@ export default function Header() {
     <StyledHeader>
       <StyledH2>Weather Planner</StyledH2>
 
+      {/* if not on login page, show logout button and clear events button */}
       {pathname !== '/login' && (
         <HeaderButtonRight>
           <LogoutButton/>

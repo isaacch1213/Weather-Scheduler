@@ -2,6 +2,9 @@
 import Header from '@/components/Header';
 import GitHubAuthForm from '@/components/GitHubAuthForm';
 import styled from "styled-components";
+
+/* tile background of cloud images for login page
+slightly offset so it doesn't look weirdly organized */
 export const CloudBackground = styled.div`
   min-height: 100vh;
   background-image: url('/cloud.png');

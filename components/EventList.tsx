@@ -13,7 +13,7 @@ import DeleteEventButton from '@/components/DeleteEventButton';
 export const NoEventsText = styled.p`
   text-align: center;
   font-size: 125%;
-  margin-top: 2rem;
+  margin-top: 10%;
   color: #1b2a49;
 `;
 
@@ -33,7 +33,7 @@ export const EventCard = styled.div`
   border-radius: 16px;
   border: 2px solid #a3d3f5;
   font-family: 'Quicksand', sans-serif;
-  position: relative;
+  position: relative ;/* allows proper positioning of elements in card (just delete button for us) */
 `;
 
 export const EventTitle = styled.h3`
@@ -52,12 +52,12 @@ export const EventLabel = styled.span`
   font-weight: 600;
   color: #1e3a8a;
 `;
-
+/* weather warning by Isaac */
 export const WeatherWarning = styled.div`
   font-size: 16px;
   font-weight: 700;
   margin-top: 3%;
-  white-space: pre-line;
+  white-space: pre-line; /* collapse space and wrap text but keep line breaks */
   display: flex;
   align-items: center;
   gap: 3%;
@@ -91,12 +91,15 @@ useEffect(() => {
     setEvents(events.filter(event => event._id !== eventId));
   };
 
+  /* if no events then display no events scheduled */
   if (events.length === 0) {
     return <NoEventsText>No events scheduled.</NoEventsText>;
   }
 
+  /* show each piece of info for events, each part styled with EventLine */
   return (
     <EventsContainer>
+      {/* from class, iterate over events array to display all, make delete button for each one */}
       {events.map((event) => (
         <EventCard key={event._id}>
           {event._id && (

@@ -24,6 +24,7 @@ const StyledClearButton = styled.button`
   }
 `;
 
+/* helper function to delete all events then refresh the page */
 export default function ClearEventsButton() {
 
   const handleClear = async () => {
@@ -31,6 +32,7 @@ export default function ClearEventsButton() {
     window.location.reload();
   };
 
+  /* button calls helper function to allow the user to remove all their existing events */
   return (
     <StyledClearButton onClick={handleClear}>
       Clear All Events

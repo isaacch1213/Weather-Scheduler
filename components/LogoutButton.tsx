@@ -1,7 +1,7 @@
 /* 
 component to allow users to sign out and return to login page
 
-Isaac added logOutaction, all else is Rohan
+Isaac added logoutAction, all else is Rohan
 */
 
 'use client';
@@ -18,10 +18,10 @@ const StyledLogoutButton = styled.button`
   font-size: 100%;
   cursor: pointer;
   font-family: 'Quicksand', sans-serif;
-  white-space: nowrap;
+  white-space: nowrap; /* prevents text from wrapping */
 
 
-  &:hover {
+  &:hover { /*changes background color when hovering over button */
     background-color: #3459c0;
   }
 `;

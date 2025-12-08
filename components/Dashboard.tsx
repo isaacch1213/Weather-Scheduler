@@ -27,6 +27,10 @@ export default function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [refreshCounter, setRefreshCounter] = useState(0); /* all refresh references added by Isaac */
 
+  /* show events and refresh if the counter changes, button to open...
+  form sits on screen, open modal if clicked, then add to ...
+  counter when new event is made
+  */
   return (
     <>
       <Header />

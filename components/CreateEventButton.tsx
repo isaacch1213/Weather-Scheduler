@@ -18,17 +18,18 @@ const StyledCreateButton = styled.button`
 `;
 
 const PositionWrapper = styled.div`
-  position: absolute;
+  position: absolute; /* ignores other elements, manually place relative to nearest ancestor */
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: flex-end;/* forces button to right side of the screen */
   padding: 5%;
   width: 100%;
-  bottom: 0;
+  bottom: 0; /* forces button to the bottom of its container */
   text-align: center;
-  z-index: 10;
+  z-index: 10; /* ensures button stays above anything else */
+
 `;
 
+/* button calls helper function to allow user to create events */
 export default function CreateEventButton({ openModal }: { openModal: () => void }) {
   return (
     <PositionWrapper>
@@ -38,3 +39,4 @@ export default function CreateEventButton({ openModal }: { openModal: () => void
     </PositionWrapper>
   );
 }
+
