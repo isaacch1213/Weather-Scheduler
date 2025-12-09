@@ -7,8 +7,9 @@ import { deleteEvent } from '@/lib/events';
 
 const DeleteButton = styled.button`
   position: absolute;
-  top: 7%;
+  top: 20px;
   left: 5%;
+  margin-botton: 1%;
   background-color: #2563eb;
   color: white;
   border: 2px solid #1e40af;
@@ -39,10 +40,7 @@ export default function DeleteEventButton({ eventId, onDelete }: DeleteEventButt
   };
 
   return (
-    <DeleteButton
-      onClick={handleDelete}
-      aria-label="Delete event"
-    >
+    <DeleteButton onClick={handleDelete}>
       ×
     </DeleteButton>
   );

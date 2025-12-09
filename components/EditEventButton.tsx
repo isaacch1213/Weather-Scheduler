@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 const EditButton = styled.button`
   position: absolute;
-  top: 7%;
+  top: 20px;
   right: 5%;
   background-color: #16a34a;
   color: white;
@@ -33,11 +33,8 @@ interface EditEventButtonProps {
 
 export default function EditEventButton({ eventId, onEdit }: EditEventButtonProps) {
   return (
-    <EditButton
-      onClick={onEdit}
-      aria-label="Edit event"
-    >
-      🖋️
+    <EditButton onClick={onEdit}>
+      ✎
     </EditButton>
   );
 }
