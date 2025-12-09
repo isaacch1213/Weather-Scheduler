@@ -81,3 +81,46 @@ export async function DELETE(req: Request) {
   
     return NextResponse.json({ success: true });
 }
+export async function PUT(req: Request) {
+    const session = await auth();
+
+    if (!session?.user?.email) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const data = await req.json();
+
+    if (!data._id || !ObjectId.isValid(data._id)) {
+        return NextResponse.json({ error: "Invalid event ID" }, { status: 400 });
+    }
+
+    const eventsCollection = await getCollection("events");
+
+    const updateData = {
+        eventName: data.eventName,
+        startTime: data.startTime,
+        endTime: data.endTime,
+        city: data.city,
+        isOutside: data.isOutside,
+        weatherWarning: data.weatherWarning,
+    };
+
+    const result = await eventsCollection.updateOne(
+        {
+            _id: new ObjectId(data._id),
+            userId: session.user.email,
+        },
+        {
+            $set: updateData,
+        }
+    );
+
+    if (result.matchedCount === 0) {
+        return NextResponse.json(
+            { error: "Event not found or unauthorized" },
+            { status: 404 }
+        );
+    }
+
+    return NextResponse.json({ success: true });
+}

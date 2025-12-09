@@ -37,3 +37,16 @@ export async function deleteEvent(eventId: string): Promise<void> {
         throw new Error('Failed to delete event');
     }
 }
+
+export async function updateEvent(eventId: string, event: EventProps): Promise<void> {
+    const response = await fetch("/api/events", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ _id: eventId, ...event }),
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to update event');
+    }
+}
