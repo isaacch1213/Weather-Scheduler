@@ -1,3 +1,7 @@
+/* Get, Delete, and Post made By Isaac
+   Delete modified by Alex and Put made by Alex
+*/
+
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import getCollection from "@/db";

@@ -28,6 +28,20 @@ export const EventsContainer = styled.div`
   padding-bottom: 15vh;
 `;
 
+export const EventCard = styled.div`
+  background-color: #a2f3ff;
+  width: max(200px + 13vw);
+  padding-top: 1%;
+  padding-bottom: 3%;
+  border-radius: 16px;
+  border: 2px solid #a3d3f5;
+  font-family: 'Quicksand', sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+/* Styling by Alex start */
 export const EventTitleBox = styled.div`
   background-color: rgba(255, 255, 255, 0.67);
   padding: 8px 12px;
@@ -41,26 +55,13 @@ export const EventTitleBox = styled.div`
   position: relative;
 `;
 
-export const EventCard = styled.div`
-  background-color: #a2f3ff;
-  width: 280px;
-  padding-top: 1%;
-  padding-bottom: 3%;
-  border-radius: 16px;
-  border: 2px solid #a3d3f5;
-  font-family: 'Quicksand', sans-serif;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 export const EventDetailsBox = styled.div`
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   border: 1px solid #a3d3f5;
-  width: 240px;
+  width: max(160px + 13vw);
   padding: 12px;
+  margin-left: 8px;
 `;
 
 export const EventTitle = styled.h3`
@@ -80,6 +81,7 @@ export const EventLabel = styled.span`
   font-weight: 600;
   color: #1e3a8a;
 `;
+/* End of styling by Alex */
 /* weather warning by Isaac */
 export const WeatherWarning = styled.div`
   font-size: 16px;
@@ -187,7 +189,7 @@ useEffect(() => {
           </EventCard>
         ))}
       </EventsContainer>
-
+      {/* Edit form by Alex */}
       <EditEventForm
         open={editModalOpen}
         onClose={() => setEditModalOpen(false)}
