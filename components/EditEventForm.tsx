@@ -1,6 +1,7 @@
 /* 
 Slightly different version of the CreateEventForm for QOL in not retyping inputs
-Made by Alex
+
+Made by Alex, derived from work by Rohan
 */
 
 'use client';

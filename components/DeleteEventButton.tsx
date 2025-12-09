@@ -7,7 +7,7 @@ import { deleteEvent } from '@/lib/events';
 
 const DeleteButton = styled.button`
   position: absolute;
-  top: 3%;
+  top: 7%;
   left: 5%;
   background-color: #2563eb;
   color: white;

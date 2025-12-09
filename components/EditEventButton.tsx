@@ -1,13 +1,14 @@
 /*
 Format for Edit button
+
 Made by Alex
 */
 import styled from 'styled-components';
 
 const EditButton = styled.button`
   position: absolute;
-  top: calc(3% + 40px);
-  left: 5%;
+  top: 7%;
+  right: 5%;
   background-color: #16a34a;
   color: white;
   border: 2px solid #15803d;

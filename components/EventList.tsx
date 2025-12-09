@@ -33,7 +33,7 @@ export const EventTitleBox = styled.div`
   padding: 8px 12px;
   border-radius: 10px;
   border: 1px solid #a3d3f5;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
   width: 160px;
   margin-left: auto;
   margin-right: auto;

@@ -18,7 +18,7 @@ const StyledCreateButton = styled.button`
 `;
 
 const PositionWrapper = styled.div`
-  position: absolute; /* ignores other elements, manually place relative to nearest ancestor */
+  position: fixed; /* ignores other elements, manually place relative to nearest ancestor */
   display: flex;
   justify-content: flex-end;/* forces button to right side of the screen */
   padding: 5%;
