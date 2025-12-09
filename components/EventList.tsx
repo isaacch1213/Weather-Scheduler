@@ -23,7 +23,7 @@ export const EventsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5%;
+  gap: 10px;
   padding: 2% 1%;
   padding-bottom: 15vh;
 `;
@@ -44,8 +44,8 @@ export const EventTitleBox = styled.div`
 export const EventCard = styled.div`
   background-color: #a2f3ff;
   width: 280px;
-  padding-top: 2%;
-  padding-bottom: 5%;
+  padding-top: 1%;
+  padding-bottom: 3%;
   border-radius: 16px;
   border: 2px solid #a3d3f5;
   font-family: 'Quicksand', sans-serif;
