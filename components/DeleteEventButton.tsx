@@ -1,3 +1,4 @@
+
 /*
 Format for delete button
 Made by Alex
@@ -30,10 +31,6 @@ const DeleteButton = styled.button`
 `;
 
 
-interface DeleteEventButtonProps {
-  eventId: string;
-  onDelete: (eventId: string) => void;
-}
 // helper function to allow for deleting by ID
 export default function DeleteEventButton({ eventId, onDelete }: DeleteEventButtonProps) {
   const handleDelete = async () => {
