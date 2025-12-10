@@ -47,7 +47,7 @@ export default function EditEventForm({
   const [city, setCity] = useState('');
   const [isOutside, setIsOutside] = useState(false);
 
-  /* populate form with existing event data when event changes */
+  /* this is the only major change, populates form with existing data */
   useEffect(() => {
     if (event) {
       setEventName(event.eventName || '');

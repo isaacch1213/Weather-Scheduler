@@ -49,7 +49,10 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true });
 }
-
+/* 
+  Delete is designed to act differently depending on whether
+  it is deleting one or many objects 
+*/
 export async function DELETE(req: Request) {
     const session = await auth();
 
