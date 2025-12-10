@@ -1,3 +1,5 @@
+/* main layout page, reduced to what we use in class */
+
 import "./globals.css";
 
 

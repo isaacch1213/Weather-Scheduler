@@ -1,3 +1,6 @@
+/*
+Sign out logic made by Isaac
+*/
 "use server";
 
 import { signOut } from "@/auth";

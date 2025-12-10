@@ -1,9 +1,11 @@
 /*
 Format for delete button
 Made by Alex
+Minor modularization hotfix by moving delete button prop to types folder by Isaac
 */
 import styled from 'styled-components';
 import { deleteEvent } from '@/lib/events';
+import { DeleteEventButtonProps } from '@/types/DeleteEventButtonProps';
 
 const DeleteButton = styled.button`
   position: absolute;

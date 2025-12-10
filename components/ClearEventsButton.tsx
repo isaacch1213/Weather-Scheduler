@@ -1,12 +1,12 @@
 /* 
 component used to allow users to remove all events they have scheduled, calls helper function
 
-entire file made by Rohan
+styling and overall structure made by Rohan
+clear event functionality made by Isaac
 */
 
 'use client';
 import { clearEvents } from '@/lib/events';
-import { useState } from 'react';
 import styled from 'styled-components';
 
 const StyledClearButton = styled.button`
@@ -19,7 +19,7 @@ const StyledClearButton = styled.button`
   cursor: pointer;
   font-family: 'Quicksand', sans-serif;
 
-  &:hover {
+  &:hover { /* set color while hovering over button */
     background-color: #3459c0;
   }
 `;

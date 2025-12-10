@@ -1,5 +1,6 @@
-/* Get, Delete, and Post made By Isaac
-   Delete modified by Alex and Put made by Alex
+/* 
+    Overall api file structure setup with auth as well as Get, Delete, and Post functionality made By Isaac
+    Delete modified by Alex and Put made by Alex
 */
 
 import { NextResponse } from "next/server";

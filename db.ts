@@ -1,3 +1,7 @@
+/*
+Entire database setup by Isaac
+*/
+
 import { MongoClient, Db, Collection } from "mongodb";
 
 const MONGODB_URI = process.env.MONGODB_URI as string;

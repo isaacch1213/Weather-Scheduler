@@ -1,3 +1,6 @@
+/*
+EventProps defined by Isaac
+*/
 export type EventProps = {
     _id?: string;
     eventName: string;

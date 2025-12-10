@@ -1,5 +1,6 @@
+/* button uses to let user make events, full file by Rohan except minor styling by Alex */
+
 'use client';
-import { Button } from '@mui/material';
 import styled from 'styled-components';
 
 const StyledCreateButton = styled.button`
@@ -12,7 +13,7 @@ const StyledCreateButton = styled.button`
   cursor: pointer;
   font-family: 'Quicksand', sans-serif;
 
-  &:hover {
+  &:hover { /* set color when hovering button */
     background-color: #3459c0;
   }
 `;
@@ -21,7 +22,7 @@ const PositionWrapper = styled.div`
   position: fixed; /* ignores other elements, manually place relative to nearest ancestor */
   display: flex;
   justify-content: flex-end;/* forces button to right side of the screen */
-  padding: 5%;
+  padding: 2%;
   width: 100%;
   bottom: 0; /* forces button to the bottom of its container */
   text-align: center;
@@ -33,9 +34,9 @@ const PositionWrapper = styled.div`
 export default function CreateEventButton({ openModal }: { openModal: () => void }) {
   return (
     <PositionWrapper>
-    <StyledCreateButton color="primary" onClick={openModal}>
-      + New Event
-    </StyledCreateButton>
+      <StyledCreateButton color="primary" onClick={openModal}>
+        + New Event
+      </StyledCreateButton>
     </PositionWrapper>
   );
 }

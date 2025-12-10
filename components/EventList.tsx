@@ -1,7 +1,9 @@
 /* 
 component used to allow smooth display of all events a user has scheduled. uses a card display system and displays event information
 
-Isaac and Alex sections commented, all else is Rohan
+Rohan added majority of frontend
+Alex added functionality for editing and deleting a specific event, as well as styling
+Isaac added functionality for weather warning data to display
 */
 
 import { useEffect, useState } from 'react';
@@ -94,14 +96,16 @@ export const WeatherWarning = styled.div`
   gap: 3%;
 `;
 
+// Refresh rendering logic by Isaac
 export default function EventList({ refreshSignal }: { refreshSignal: number }) {
   const [events, setEvents] = useState<EventProps[]>([]);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [eventToEdit, setEventToEdit] = useState<EventProps | null>(null);
 
-useEffect(() => {
-  async function fetchEvents() {
-    const data = await getEvents();
+  // added initial useEffect to get data based on refresh variable by Isaac
+  useEffect(() => {
+    async function fetchEvents() {
+      const data = await getEvents();
 
     // Sort by startTime ("HH:mm"), done by Alex
     // Calculates what is earlier by counting minutes. Runs each time getEvents is called
@@ -109,17 +113,18 @@ useEffect(() => {
       const [hA, mA] = a.startTime.split(':').map(Number);
       const [hB, mB] = b.startTime.split(':').map(Number);
 
-      const minutesA = hA * 60 + mA;
-      const minutesB = hB * 60 + mB;
+        const minutesA = hA * 60 + mA;
+        const minutesB = hB * 60 + mB;
 
-      return minutesA - minutesB;
-    });
+        return minutesA - minutesB;
+      });
 
-    setEvents(sorted);
-  }
+      setEvents(sorted);
+    }
 
-  fetchEvents();
-}, [refreshSignal]);
+    fetchEvents();
+  }, [refreshSignal]);
+
   /* delete button and associated functionality added by Alex */
   const handleDeleteEvent = (eventId: string) => {
     setEvents(events.filter(event => event._id !== eventId));

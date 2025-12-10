@@ -1,3 +1,7 @@
+/*
+Create, get, and clear event made by Isaac
+*/
+
 import { EventProps } from "@/types/EventProps";
 
 export async function createEvent(event: EventProps) {

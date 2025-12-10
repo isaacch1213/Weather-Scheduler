@@ -6,7 +6,6 @@ Isaac added logoutAction, all else is Rohan
 
 'use client';
 import { logoutAction } from '@/lib/logout';
-import { useRouter } from 'next/navigation';
 import styled from 'styled-components';
 
 const StyledLogoutButton = styled.button`

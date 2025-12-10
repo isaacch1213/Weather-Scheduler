@@ -1,3 +1,7 @@
+/*
+Entire GitHub auth file done by Isaac
+Minor styling changes by Rohan
+*/
 'use client';
 
 import { Box, Paper, Typography, Button } from "@mui/material";

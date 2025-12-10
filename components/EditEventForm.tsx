@@ -58,40 +58,50 @@ export default function EditEventForm({
     }
   }, [event]);
 
+  // Entire function logic made by Isaac
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!event?._id) return;
+    // Added logic to handle bad city input
+    try {
+      if (!event?._id) {
+        return;
+      };
+      
+      const data = await getData(city);
     
-    const data = await getData(city);
-  
-    const weatherWarning = evaluateWeatherForEvent(
-      data,
-      startTime,
-      endTime,
-      isOutside
-    );
-  
-    const payload = {
-      eventName,
-      startTime,
-      endTime,
-      city,
-      isOutside,
-      weatherWarning,
+      const weatherWarning = evaluateWeatherForEvent(
+        data,
+        startTime,
+        endTime,
+        isOutside
+      );
+    
+      const props = {
+        eventName,
+        startTime,
+        endTime,
+        city,
+        isOutside,
+        weatherWarning,
+      };
+    
+      await updateEvent(event._id, props);
+    
+      // reset fields and close modal
+      onUpdated();
+      setEventName('');
+      setStartTime('');
+      setEndTime('');
+      setCity('');
+      setIsOutside(false);
+    
+      onClose();
+    } catch (err) {
+      console.error(err);
+      setCity('');
+      alert("City not found. Please enter a valid city.");
     };
-  
-    await updateEvent(event._id, payload);
-  
-    // reset fields and close modal
-    onUpdated();
-    setEventName('');
-    setStartTime('');
-    setEndTime('');
-    setCity('');
-    setIsOutside(false);
-  
-    onClose();
   };
   
   return (
